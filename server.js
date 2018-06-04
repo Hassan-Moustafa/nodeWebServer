@@ -19,9 +19,9 @@ app.use((req , res , next) => {
     next();
 })
 
-app.use((req,res) => {
-    res.render('updating.hbs');
-})
+// app.use((req,res) => {
+//     res.render('updating.hbs');
+// })
 
 app.get('/',(req , res) =>{
     res.send({
