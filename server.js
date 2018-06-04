@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const fs = require('fs');
 const app = express();
 
+const port = process.env.PORT || 3000 ;
+
 hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine' , 'hbs');
 app.use(express.static(__dirname + '/public'));
@@ -12,7 +14,7 @@ app.use((req , res , next) => {
     let method = req.method;
     let url = req.url;
     fs.appendFile('logs.json' , JSON.stringify({now,method,url}),(error) =>{
-        
+
     });
     next();
 })
@@ -36,4 +38,4 @@ app.get('/about',(req,res) =>{
     });
 })
 
-app.listen(3000);
+app.listen(port);
